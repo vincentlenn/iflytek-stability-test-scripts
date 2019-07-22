@@ -107,7 +107,7 @@ def actions4DVRmode(driver):
     time.sleep(5)
 
     # 关闭字幕展示，等待5s后再次打开
-    switch = driver.find_element_by_xpath('//div[@class="subtitle-switch  "]/i')
+    switch = driver.find_element_by_xpath('//div[@class="subtitle-switch"]/i')
     switch.click()
     print("close subtitle")
     time.sleep(5)

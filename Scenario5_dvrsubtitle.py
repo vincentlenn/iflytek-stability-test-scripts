@@ -82,7 +82,7 @@ else:
         else:
             time.sleep(10)
             # 判断字幕是否打开，若关闭则点击打开
-            switch = driver.find_element_by_xpath('//div[@class="subtitle-switch  "]/i')
+            switch = driver.find_element_by_xpath('//div[@class="subtitle-switch"]/i')
             switch_status = switch.get_attribute('class')
             if switch_status == 'close':
                 switch.click()
