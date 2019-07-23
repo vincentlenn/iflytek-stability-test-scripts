@@ -97,7 +97,9 @@ finally:
         print("09 begin speech")
 
         # 点击一键智能适配，将字幕条位置还原为默认位置
-        driver.find_element_by_class_name('subtitle-adaption').click()
+        adaption_btn = driver.find_element_by_xpath('//div[@class="subtitle-setting-attribute-frame"]/div[1]')
+        if adaption_btn.get_attribute('class') == 'subtitle-adaption':
+            adaption_btn.click()
         time.sleep(30)
         count = 0
         while (count < _loop):
