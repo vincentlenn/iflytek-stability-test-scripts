@@ -87,6 +87,11 @@ else:
             if switch_status == 'close':
                 switch.click()
 
+            # 自动适配字幕设置为默认
+            adaption_btn = driver.find_element_by_xpath('//div[@class="subtitle-setting-attribute-frame"]/div[1]')
+            if adaption_btn.get_attribute('class') == 'subtitle-adaption ':
+                adaption_btn.click()
+
             time.sleep(2)
             # 点击开始按钮，开始字幕上屏，打印开始时间
             driver.find_element_by_xpath('//button[@class="control-item control-start"]').click()
@@ -95,8 +100,6 @@ else:
             print("09 start executing actions")
             # 以下代码循环执行模拟用户操作
             n = 1
-            # 点击一键智能适配，将字幕条位置还原为默认位置
-            driver.find_element_by_class_name('subtitle-adaption').click()
             while True:
                 timer = threading.Timer(30, actions4DVRmode, (driver,))
                 timer.start()

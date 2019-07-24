@@ -100,7 +100,7 @@ def actions4DVRmode(driver):
     # 在指定范围内生成随机坐标x,y, 预览窗口参数x: 100 y: 120 w: 1086 h: 611
     x = random.randint(100, 1186)
     y = random.randint(120, 731)
-    subtitle = driver.find_element_by_class_name('subtitle-preview-container')
+    subtitle = driver.find_element_by_class_name('subtitle-content-box')
     # 拖动预览字幕条到指定位置
     ActionChains(driver).drag_and_drop_by_offset(subtitle, x, y).perform()
     print("drag and drop the subtitle")
@@ -120,8 +120,10 @@ def actions4DVRmode(driver):
     print("wipe edit content")
 
     time.sleep(40)
-    # 点击一键智能适配，将字幕条位置还原为默认位置
-    driver.find_element_by_class_name('subtitle-adaption').click()
+    # 自动适配字幕设置为默认
+    adp_btn = driver.find_element_by_xpath('//div[@class="subtitle-setting-attribute-frame"]/div[1]')
+    if adp_btn.get_attribute('class') == 'subtitle-adaption ':
+        adp_btn.click()
     print("restore subtitle position")
     print("action done")
     print("==========")

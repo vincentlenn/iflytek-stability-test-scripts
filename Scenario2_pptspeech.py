@@ -96,20 +96,22 @@ finally:
         driver.find_element_by_xpath('//button[@class="control-item control-start"]').click()
         print("09 begin speech")
 
-        # 点击一键智能适配，将字幕条位置还原为默认位置
+        # 自动适配字幕设置为默认
         adaption_btn = driver.find_element_by_xpath('//div[@class="subtitle-setting-attribute-frame"]/div[1]')
-        if adaption_btn.get_attribute('class') == 'subtitle-adaption':
+        print(adaption_btn.get_attribute('class'))
+        if adaption_btn.get_attribute('class') == 'subtitle-adaption ':
             adaption_btn.click()
+            print('adapt subtitle')
         time.sleep(30)
         count = 0
         while (count < _loop):
             # 在指定范围内生成随机坐标x,y, 预览窗口参数x: 100 y: 120 w: 1086 h: 611
             x = random.randint(100, 1186)
             y = random.randint(120, 731)
-            subtitle = driver.find_element_by_class_name('subtitle-preview-container')
+            subtitle = driver.find_element_by_class_name('subtitle-content-box')
             # 拖动预览字幕条到指定位置
             ActionChains(driver).drag_and_drop_by_offset(subtitle, x, y).perform()
-            print("drag and drop the subtitle")
+            print("drag and drop the subtitle to %s, %s" % (x, y))
             time.sleep(10)
 
             # 清空字幕
@@ -118,9 +120,11 @@ finally:
             count = count + 1
 
             time.sleep(60)
-            driver.find_element_by_class_name('subtitle-adaption').click()
+            if adaption_btn.get_attribute('class') == 'subtitle-adaption ':
+                adaption_btn.click()
+                print('adapt subtitle')
 
-            time.sleep(500)
+            time.sleep(600)
 
         # 暂停演讲
         driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]/span').click()
