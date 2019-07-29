@@ -27,6 +27,10 @@ cmd = "d: && cd telegraf-1.10.1 && start.bat"
 subprocess.Popen(cmd, shell=True)
 print("02 run telegraf")
 
+# 是否希望自动结束
+time.sleep(2)
+auto_end = bool(input("Do you wish it ends by itself? Yes(1) or No(0): "))
+
 # 运行转写机客户端，检查页面元素（演讲记录模块入口）是否存在
 driver = webdriver.Chrome(executable_path=path, chrome_options=chrome_options)
 try:
@@ -133,3 +137,7 @@ else:
                     time.sleep(10)
                     driver.find_element_by_xpath('//button[@class="control-item control-continue"]').click()
                     print("continue")
+
+            if auto_end:
+                driver.find_element_by_css_selector('.control-item.control-end').click()
+                print('11 end by itself')

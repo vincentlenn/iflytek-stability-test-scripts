@@ -103,7 +103,7 @@ def actions4DVRmode(driver):
     subtitle = driver.find_element_by_class_name('subtitle-content-box')
     # 拖动预览字幕条到指定位置
     ActionChains(driver).drag_and_drop_by_offset(subtitle, x, y).perform()
-    print("drag and drop the subtitle")
+    print("drag and drop the subtitle to %s, %s" % (x, y))
     time.sleep(5)
 
     # 关闭字幕展示，等待5s后再次打开

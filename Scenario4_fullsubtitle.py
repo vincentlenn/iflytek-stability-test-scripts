@@ -35,43 +35,43 @@ try:
 finally:
     time.sleep(10)
 
-# 选择全屏字幕
-driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div[3]/ul/li[1]/p').click()
-time.sleep(5)
-print("04 open fullscreen")
-
-# 在音频选择页选择本地内置麦克风
-driver.find_element_by_xpath('/html/body/div[6]/div/div/div/div[2]/div[1]/form/ul/li[3]/label').click()
-time.sleep(5)
-print("05 select mic")
-
-# 在音频选择页点击“下一步”
-driver.find_element_by_xpath('/html/body/div[6]/div/div/div/div[2]/div[2]/div/a').click()
-time.sleep(5)
-print("06 click next")
-
-# 开始字幕上屏
-driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]').click()
-time.sleep(5)
-print("07 click begin")
-
-count = 0
-while (count < _loop):
-    # 清空字幕
-    driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div[2]/div/div[3]/a[1]').click()
+    # 选择全屏字幕
+    driver.find_element_by_xpath('//*[@id="root"]/div/div[2]/div[3]/ul/li[1]/p').click()
     time.sleep(5)
-    print("08 click clean")
-    
-    count = count + 1
-    time.sleep(500)
+    print("04 open fullscreen")
 
-# 暂停字幕上屏
-driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]/span').click()
-time.sleep(10)
-print("09 click pause")
+    # 在音频选择页选择本地内置麦克风
+    driver.find_element_by_xpath('/html/body/div[6]/div/div/div/div[2]/div[1]/form/ul/li[3]/label').click()
+    time.sleep(5)
+    print("05 select mic")
 
-# 继续字幕上屏
-driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]/span').click()
-time.sleep(5)
-print("10 click continue")
+    # 在音频选择页点击“下一步”
+    driver.find_element_by_xpath('/html/body/div[6]/div/div/div/div[2]/div[2]/div/a').click()
+    time.sleep(5)
+    print("06 click next")
+
+    # 开始字幕上屏
+    driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]').click()
+    time.sleep(5)
+    print("07 click begin")
+
+    count = 0
+    while (count < _loop):
+        # 清空字幕
+        driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[2]/div[2]/div/div[3]/a[1]').click()
+        time.sleep(5)
+        print("08 click clean")
+
+        count = count + 1
+        time.sleep(500)
+
+    # 暂停字幕上屏
+    driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]/span').click()
+    time.sleep(10)
+    print("09 click pause")
+
+    # 继续字幕上屏
+    driver.find_element_by_xpath('//*[@id="root"]/div/div/div/div[1]/div[1]/div/div[1]/div/button[1]/span').click()
+    time.sleep(5)
+    print("10 click continue")
 
