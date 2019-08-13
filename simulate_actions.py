@@ -1,6 +1,7 @@
+# -*-coding:utf-8-*-
 __author__ = "jialin2@iflytek.com"
 
-import threading
+# import threading
 import time
 import random
 # import pysnooper
@@ -76,8 +77,9 @@ def actions4realtime(driver, count):
         try:
             # 输入讲话人名称
             input = WebDriverWait(driver, 3).until(
-            EC.visibility_of_element_located((By.XPATH, '//*[@class="hisee-speaker-list active"]/div[last()]/input'))
-        )
+                EC.visibility_of_element_located(
+                    (By.XPATH, '//*[@class="hisee-speaker-list active"]/div[last()]/input'))
+            )
         except Exception:
             print("speaker input not visible")
         else:
@@ -127,4 +129,3 @@ def actions4DVRmode(driver):
     print("restore subtitle position")
     print("action done")
     print("==========")
-

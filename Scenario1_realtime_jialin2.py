@@ -1,3 +1,4 @@
+# -*-coding:utf-8-*-
 __author__ = "jialin2"
 
 import subprocess

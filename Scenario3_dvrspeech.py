@@ -1,3 +1,4 @@
+# -*-coding:utf-8-*-
 __author__ = "jialin2@iflytek.com"
 
 import subprocess
